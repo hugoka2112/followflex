@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FollowFlex - Követővásárlás</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    body {<section id="free-trial" style="padding: 2rem; text-align: center; background-color: black; color: white;">
+  <h2 style="font-size: 2rem; margin-bottom: 1rem;">🎁 Próbáld ki ingyen – 10 követő ajándékba!</h2>
+  <p>Írd be az Instagram felhasználóneved, és azonnal kapsz 10 követőt!</p>
+  <input type="text" id="trialUsername" placeholder="pl. insta_neved" style="padding: 0.5rem; margin-top: 1rem; width: 300px; border-radius: 8px; border: none;">
+  <br>
+  <button onclick="submitTrial()" style="margin-top: 1rem; padding: 0.7rem 1.5rem; border: none; border-radius: 10px; background-color: #00ff99; color: black; font-weight: bold;">
+    Kérem az ingyenes követőket
+  </button>
+  <p id="trialResponse" style="margin-top: 1rem;"></p>
+</section>
+
+<script>
+function submitTrial() {
+    const username = document.getElementById("trialUsername").value.trim();
+    const response = document.getElementById("trialResponse");
+    if (!username) {
+        response.textContent = "❗ Kérlek add meg az Instagram felhasználóneved!";
+        response.style.color = "red";
+        return;
+    }
+    if (localStorage.getItem("followflex_trial_used") === "true") {
+        response.textContent = "😅 Egyszer már kipróbáltad az ingyenes csomagot!";
+        response.style.color = "orange";
+        return;
+    }
+    localStorage.setItem("followflex_trial_used", "true");
+    response.textContent = "✅ A követők úton vannak @" + username + " felhasználóhoz! 🎉";
+    launchConfetti();
+    playSound(true);
+    response.style.color = "#00ff99";
+}
+</script>
+
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .package {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .paypal-button-container {
+      margin-top: 15px;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #fff; }
+  50% { box-shadow: 0 0 15px #0ff; }
+  100% { box-shadow: 0 0 5px #fff; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes floatHeader {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+    body {
+      background: linear-gradient(-45deg, #000, #111, #000, #111);
+      background-size: 400% 400%;
+      animation: backgroundShift 20s ease infinite;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      animation: floatHeader 1.5s ease-out;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+    .package {
+      animation: slideInUp 1s ease-out;
+    }
+    .package a {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      color: #fff;
+      margin-top: 10px;
+      text-decoration: none;
+      animation: glow 2s infinite alternate, pulse 4s infinite ease-in-out;
+    }
+
+</style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AXlMy7-klO6MlAf21qOzN4IwDQ-l1lOARuqKlBi5v1yXI2BNt7-ZlwCF9c9RkU_1y1PSzWMqajP7-aBd&currency=EUR"></script>
+
+<style>
+  body::before {
+    content: '';
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,255,0.2), transparent 60%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 999;
+  }
+</style>
+<script>
+  document.addEventListener('mousemove', function(e) {
+    document.body.style.setProperty('--x', e.clientX + 'px');
+    document.body.style.setProperty('--y', e.clientY + 'px');
+    document.body.querySelector('body::before');
+  });
+</script>
+
+
+<style>
+  .package.sale {
+    border: 2px solid gold;
+    background: #111;
+    color: white;
+    box-shadow: 0 0 15px gold;
+  }
+  .package.sale .badge {
+    background: crimson;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .package.sale s {
+    color: #aaa;
+    margin-right: 8px;
+  }
+</style>
+
+
+<style>
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  .package.sale .badge {
+    animation: pulse 1.5s infinite;
+  }
+  .countdown {
+    font-size: 0.85em;
+    color: #ffcc00;
+    margin-top: 5px;
+  }
+</style>
+
+
+<script>
+  function startCountdown(id, seconds) {
+    const target = new Date().getTime() + seconds * 1000;
+    const el = document.getElementById(id);
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = target - now;
+      if (distance <= 0) {
+        clearInterval(timer);
+        el.innerHTML = "Lejárt az akció";
+        const pkg = el.closest('.package');
+        if (pkg) pkg.style.opacity = '0.4';
+        return;
+      }
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      el.innerHTML = `Hátralévő idő: ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  }
+  window.onload = () => {
+    startCountdown("countdown-1000", 259200);
+    startCountdown("countdown-5000", 259200);
+    startCountdown("countdown-10000", 259200);
+  };
+</script>
+
+
+<style>
+  .package.sale {
+    border: 2px solid gold;
+    background: #111;
+    color: white;
+    box-shadow: 0 0 15px gold;
+  }
+  .package.sale .badge {
+    background: crimson;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
+  }
+  .package.sale s {
+    color: #aaa;
+    margin-right: 8px;
+  }
+  .countdown {
+    font-size: 0.85em;
+    color: #ffcc00;
+    margin: 6px 0;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+</style>
+<script>
+  function startCountdown(id, seconds) {
+    const target = new Date().getTime() + seconds * 1000;
+    const el = document.getElementById(id);
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = target - now;
+      if (distance <= 0) {
+        clearInterval(timer);
+        el.innerHTML = "Lejárt az akció";
+        const pkg = el.closest('.package');
+        if (pkg) pkg.style.opacity = '0.4';
+        return;
+      }
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secondsLeft = Math.floor((distance % (1000 * 60)) / 1000);
+      el.innerHTML = `Hátralévő idő: ${hours}h ${minutes}m ${secondsLeft}s`;
+    }, 1000);
+  }
+  window.onload = () => {
+    startCountdown("countdown-1000", 259200);
+    startCountdown("countdown-5000", 259200);
+    startCountdown("countdown-10000", 259200);
+  };
+</script>
+
+
+<style>
+  .coupon-section {
+    margin: 30px 0;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 0 10px #333;
+  }
+  .coupon-section input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-size: 1em;
+  }
+  .coupon-section button {
+    padding: 10px 15px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #couponMessage {
+    margin-top: 10px;
+    font-size: 0.95em;
+  }
+</style>
+
+
+
+
+
+<style>
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 999;
+  padding-top: 120px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+  background-color: #111;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: white;
+}
+</style>
+
+
+<script>
+function closeModal() {
+  document.getElementById("couponModal").style.display = "none";
+}
+window.onload = () => {
+  startCountdown("countdown-1000", 259200);
+  startCountdown("countdown-5000", 259200);
+  startCountdown("countdown-10000", 259200);
+  setTimeout(() => {
+    document.getElementById("couponModal").style.display = "block";
+  }, 1000);
+};
+
+function applyCoupon() {
+  const code = document.getElementById("couponCode").value.trim();
+  const message = document.getElementById("couponMessage");
+  let applied = false;
+
+  if (code === "FLEX20") {
+    const prices = document.querySelectorAll(".price-original");
+    prices.forEach(p => {
+      const original = parseFloat(p.dataset.original);
+      const discount = (original * 0.8).toFixed(2);
+      p.innerHTML = `<s>${original.toFixed(2)} €</s> <strong>${discount} €</strong>`;
+    });
+    applied = true;
+  } else if (code === "FLEX5000") {
+    const p = document.querySelector('[data-product="5000"]');
+    if (p) {
+      const original = parseFloat(p.dataset.original);
+      const discount = (original * 0.8).toFixed(2);
+      p.innerHTML = `<s>${original.toFixed(2)} €</s> <strong>${discount} €</strong>`;
+      applied = true;
+    }
+  }
+
+  if (applied) {
+    message.textContent = "✅ Kuponkód sikeresen érvényesítve!";
+    message.style.color = "lime";
+  } else {
+    message.textContent = "❌ Érvénytelen kuponkód.";
+    message.style.color = "red";
+  }
+}
+</script>
+
+
+<style>
+#floatingCoupon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #111;
+  border: 1px solid #444;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+  color: white;
+  font-family: sans-serif;
+}
+#floatingCoupon input {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 5px;
+}
+#floatingCoupon button {
+  padding: 6px 10px;
+  background: #0f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+#floatingCoupon p {
+  margin: 5px 0 0 0;
+  font-size: 0.9em;
+}
+</style>
+
+
+<style>
+@keyframes pulse-success {
+  0% { box-shadow: 0 0 0 0 rgba(0,255,0,0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0,255,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,255,0,0); }
+}
+@keyframes shake-error {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+}
+#floatingCoupon.success {
+  animation: pulse-success 0.6s ease;
+}
+#floatingCoupon.error {
+  animation: shake-error 0.4s ease;
+}
+</style>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+function launchConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
+</script>
+
+
+
+
+
+<audio id="successSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_7a15cfc469.mp3"></audio>
+<audio id="errorSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_fefcd44b88.mp3"></audio>
+<script>
+function playSound(success) {
+  const successAudio = document.getElementById("successSound");
+  const errorAudio = document.getElementById("errorSound");
+  if (success) {
+    successAudio.play();
+  } else {
+    errorAudio.play();
+  }
+}
+</script>
+
+
+
+
+
+<script>
+function applyCoupon() {
+  const code = document.getElementById("couponCode").value.trim();
+  const message = document.getElementById("couponMessage");
+  const box = document.getElementById("floatingCoupon");
+  box.classList.remove("success", "error");
+
+  // Ellenőrizzük, hogy a kupon már el lett-e mentve
+  const usedCoupons = JSON.parse(localStorage.getItem("usedCoupons") || "[]");
+  if (usedCoupons.includes(code)) {
+    message.textContent = "❌ Ezt a kuponkódot már felhasználtad!";
+    message.style.color = "orange";
+    box.classList.add("error");
+    playSound(false);
+    return;
+  }
+
+  let applied = false;
+
+  if (code === "FLEX20") {
+    const prices = document.querySelectorAll(".price-original");
+    prices.forEach(p => {
+      const original = parseFloat(p.dataset.original);
+      const discount = (original * 0.8).toFixed(2);
+      p.innerHTML = `<s>${original.toFixed(2)} €</s> <strong>${discount} €</strong>`;
+    });
+    applied = true;
+  } else if (code === "FLEX5000") {
+    const p = document.querySelector('[data-product="5000"]');
+    if (p) {
+      const original = parseFloat(p.dataset.original);
+      const discount = (original * 0.8).toFixed(2);
+      p.innerHTML = `<s>${original.toFixed(2)} €</s> <strong>${discount} €</strong>`;
+      applied = true;
+    }
+  }
+
+  if (applied) {
+    message.textContent = "✅ Kuponkód sikeresen érvényesítve!";
+    message.style.color = "lime";
+    box.classList.add("success");
+    playSound(true);
+    launchConfetti();
+
+    // Hozzáadjuk a listához és elmentjük
+    usedCoupons.push(code);
+    localStorage.setItem("usedCoupons", JSON.stringify(usedCoupons));
+  } else {
+    message.textContent = "❌ Érvénytelen kuponkód.";
+    message.style.color = "red";
+    box.classList.add("error");
+    playSound(false);
+  }
+}
+</script>
+
+</head>
+<body>
+
+<style>
+#floatingTrialBtn {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #ff3cac;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 12px #ff3cac;
+  z-index: 9999;
+}
+</style>
+
+<button id="floatingTrialBtn">🎁 Ingyen 10 követő próba</button>
+
+<div id="floatingTrialModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('floatingTrialModal').style.display='none'">&times;</span>
+    <h2>🎉 Próbáld ki ingyen!</h2>
+    <p>Írd be a felhasználóneved:</p>
+    <input type="text" id="floatingTrialUsername" placeholder="pl. insta_neved"><br>
+    <button onclick="submitFloatingTrial()">Küldés</button>
+    <p id="floatingTrialResponse" style="margin-top: 10px;"></p>
+  </div>
+</div>
+
+<script>
+document.getElementById("floatingTrialBtn").onclick = () => {
+  document.getElementById("floatingTrialModal").style.display = "block";
+};
+function submitFloatingTrial() {
+  const username = document.getElementById("floatingTrialUsername").value.trim();
+  const response = document.getElementById("floatingTrialResponse");
+  if (!username) {
+    response.textContent = "❗ Írj be egy felhasználónevet!";
+    response.style.color = "red";
+    return;
+  }
+  if (localStorage.getItem("followflex_floating_trial_used") === "true") {
+    response.textContent = "😅 Már kipróbáltad az ingyenes csomagot!";
+    response.style.color = "orange";
+    return;
+  }
+  response.textContent = "✅ A követők úton vannak @" + username + " felhasználóhoz!";
+  response.style.color = "#00ff99";
+  localStorage.setItem("followflex_floating_trial_used", "true");
+  confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+}
+</script>
+
+
+
+
+
+<audio id="typeSound" src="https://www.soundjay.com/keyboard/sounds/keyboard-1.mp3" preload="auto"></audio>
+<div id="sloganBox" style="color:white; font-size:1.5rem; text-align:center; margin-top: 1rem; min-height: 2.5em;">
+  <span id="sloganText"></span>
+</div>
+<script>
+  const slogans = [
+    "Több követő = nagyobb elérés!",
+    "Rendelj most, és emelkedj ki a tömegből!",
+    "Biztonságos vásárlás PayPal-lal!",
+    "Felturbóznád a profilod? Vágj bele most!",
+    "Akciós árak csak korlátozott ideig!",
+    "Követők 24 órán belül kiszállítva!",
+    "Növeld a hitelességed néhány kattintással!"
+  ];
+
+  let sloganIndex = 0;
+  let charIndex = 0;
+  let sloganText = document.getElementById("sloganText");
+  const typeSound = document.getElementById("typeSound");
+
+  function typeSlogan() {
+    if (charIndex < slogans[sloganIndex].length) {
+      sloganText.textContent += slogans[sloganIndex].charAt(charIndex);
+      if (typeSound) {
+        typeSound.currentTime = 0;
+        typeSound.play();
+      }
+      charIndex++;
+      setTimeout(typeSlogan, 70);
+    } else {
+      setTimeout(eraseSlogan, 3000);
+    }
+  }
+
+  function eraseSlogan() {
+    if (charIndex > 0) {
+      sloganText.textContent = slogans[sloganIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(eraseSlogan, 30);
+    } else {
+      sloganIndex = (sloganIndex + 1) % slogans.length;
+      setTimeout(typeSlogan, 500);
+    }
+  }
+
+  typeSlogan();
+</script>
+
+
+
+
+
+
+<style>
+  #sloganText {
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
+
+
+<div id="couponModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>💸 Extra kedvezmény!</h2>
+    <p>Használd a <strong>FLEX5000</strong> kuponkódot az 5 000 követős csomagra, és kapsz 20% kedvezményt!</p>
+  </div>
+</div>
+
+
+<div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;justify-content:center;align-items:center;z-index:9999;">
+  <div style="border:8px solid #333;border-top:8px solid #0ff;border-radius:50%;width:60px;height:60px;animation:spin 1s linear infinite;"></div>
+</div>
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').style.display = 'none';
+  }, 1000);
+});
+</script>
+
+  <header>
+    <img src="logo.png" alt="FollowFlex logó" />
+    <h1>FollowFlex</h1>
+    <p>Vásárolj valódi követőket gyorsan és biztonságosan!</p>
+    
+<div style="margin-top: 20px;">
+  <a href="#vasarlas" style="
+    background: #4f46e5;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+  " onmouseover="this.style.background='#3730a3'" onmouseout="this.style.background='#4f46e5'">
+    Kezdd el most – növeld a követőid!
+  </a>
+</div>
+
+  </header>
+
+  <section id="vasarlas">
+    
+    <div class="package">
+      <h2><a href="buy_500.html" style="color: #fff; text-decoration: none;">500 követő – 1170 Ft</a></h2>
+    </div>
+    
+    <div class="package">
+      <h2><a href="buy_1000.html" style="color: #fff; text-decoration: none;">1000 követő – 1950 Ft</a></h2>
+    </div>
+    
+    <div class="package">
+      <h2><a href="buy_2500.html" style="color: #fff; text-decoration: none;">2500 követő – 3900 Ft</a></h2>
+    </div>
+    
+    <div class="package">
+      <h2><a href="buy_5000.html" style="color: #fff; text-decoration: none;">5000 követő – 7020 Ft</a></h2>
+    </div>
+    
+    <div class="package">
+      <h2><a href="buy_10000.html" style="color: #fff; text-decoration: none;">10000 követő – 11700 Ft</a></h2>
+    </div>
+    
+    <div class="package">
+      <h2><a href="buy_25000.html" style="color: #fff; text-decoration: none;">25000 követő – 25350 Ft</a></h2>
+    </div>
+    
+    <div class="package">
+      <h2><a href="buy_50000.html" style="color: #fff; text-decoration: none;">50000 követő – 42900 Ft</a></h2>
+    </div>
+    
+  </section>
+
+  
+<section style="max-width: 800px; margin: 40px auto; padding: 20px; background: rgba(255,255,255,0.08); border-radius: 16px;">
+  <h2 style="text-align:center; color:#fff;">💬 Vásárlói vélemények</h2>
+  <div style="margin-top: 20px; color:#eee;">
+    <p>⭐️⭐️⭐️⭐️⭐️ <strong>Anna T.</strong>: „2 nap alatt megkaptam az összes követőt! Nagyon elégedett vagyok.”</p>
+    <p>⭐️⭐️⭐️⭐️⭐️ <strong>Bence K.</strong>: „Megbízható oldal, PayPal-lal gond nélkül ment minden.”</p>
+    <p>⭐️⭐️⭐️⭐️⭐️ <strong>Lilla R.</strong>: „Az Instagram profilom végre él, hála a FollowFlexnek!”</p>
+  </div>
+</section>
+
+  
+<section style="max-width: 800px; margin: 40px auto; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 16px;">
+  <h2 style="text-align:center; color:#fff;">📱 Profilnövekedés előnézet</h2>
+  <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap;">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="80" />
+    <div style="color:#fff;">
+      <p><strong>@teprofilod</strong></p>
+      <p>📈 Követők: 1 234 ➜ <strong>11 234</strong></p>
+      <p>🔥 Növekedés 10 000 új követővel</p>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    Kapcsolat: h52981096@gmail.com | © 2025 FollowFlex
+  </footer>
+
+  <script>
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '3.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-1');
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '5.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-2');
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '10.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-3');
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '18.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-4');
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '30.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-5');
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '65.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-6');
+    
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+      createOrder: function(data, actions) {
+        return actions.order.create({ purchase_units: [{ amount: { value: '110.00' } }] });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Köszönjük a vásárlást, ' + details.payer.name.given_name + '!');
+        });
+      }
+    }).render('#paypal-button-7');
+    
+  </script>
+
+<canvas id="stars" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></canvas>
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let w, h;
+  let stars = [];
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    stars = Array.from({ length: 100 }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.5 + 0.5,
+      d: Math.random() * 0.5 + 0.05
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#0ff';
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.d;
+      if (star.y > h) {
+        star.y = 0;
+        star.x = Math.random() * w;
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+</script>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const el = document.querySelector('header h1');
+    const text = el.textContent;
+    el.textContent = '';
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 120);
+      }
+    }
+    type();
+  });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".package a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      });
+    });
+  });
+</script>
+
+
+<div id="floatingCoupon">
+  <input type="text" id="couponCode" placeholder="Kuponkód: pl. FLEX20">
+  <button onclick="applyCoupon()">Beváltás</button>
+  <p id="couponMessage"></p>
+</div>
+
+
+<style>
+  #wheelContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    color: white;
+  }
+  #wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    position: relative;
+    overflow: hidden;
+    transform: rotate(0deg);
+    transition: transform 4s cubic-bezier(.17,.67,.83,.67);
+  }
+  .segment {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    transform-origin: 100% 100%;
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+    text-align: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  #spinButton {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background: #ff3cac;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+
+<div id="wheelContainer">
+  <div id="wheel"></div>
+  <button id="spinButton">Pörgetés</button>
+</div>
+
+
+<script>
+  const prizes = [
+    { label: "5% kedvezmény", code: "FF5OFF" },
+    { label: "10% kedvezmény", code: "FF10OFF" },
+    { label: "15% kedvezmény", code: "FF15OFF" },
+    { label: "20% kedvezmény", code: "FF20OFF" },
+    { label: "Nyeretlen", code: null },
+    { label: "30% kedvezmény", code: "FF30OFF" },
+  ];
+
+  const colors = ["#FFD700", "#FF69B4", "#90EE90", "#87CEFA", "#FFA07A", "#DDA0DD"];
+  const wheel = document.getElementById("wheel");
+
+  wheel.innerHTML = ""; // töröljük ha újraillesztjük
+
+  for (let i = 0; i < prizes.length; i++) {
+    const seg = document.createElement("div");
+    seg.className = "segment";
+    seg.style.background = colors[i % colors.length];
+    seg.style.transform = `rotate(${i * (360 / prizes.length)}deg)`;
+    seg.textContent = prizes[i].label;
+    wheel.appendChild(seg);
+  }
+
+  let angle = 0;
+  const spinButton = document.getElementById("spinButton");
+
+  // Ellenőrzés: már pörgetett?
+  if (localStorage.getItem("followflex_spin_used") === "true") {
+    spinButton.disabled = true;
+    spinButton.textContent = "Már pörgettél!";
+  }
+
+  spinButton.addEventListener("click", () => {
+    if (localStorage.getItem("followflex_spin_used") === "true") return;
+
+    const spins = Math.floor(Math.random() * 5 + 5);
+    const winningIndex = Math.floor(Math.random() * prizes.length);
+    angle += 360 * spins + (360 / prizes.length) * winningIndex;
+    wheel.style.transform = `rotate(${angle}deg)`;
+
+    localStorage.setItem("followflex_spin_used", "true");
+
+    setTimeout(() => {
+      const prize = prizes[winningIndex];
+      if (prize.code) {
+        alert("🎉 Gratulálunk! Nyereményed: " + prize.label + 
+              "
+Használd ezt a kuponkódot a vásárlásnál: " + prize.code);
+      } else {
+        alert("Sajnáljuk, most nem nyertél. Próbálkozz legközelebb!");
+      }
+      spinButton.disabled = true;
+      spinButton.textContent = "Már pörgettél!";
+    }, 4500);
+  });
+</script>
+
+
+</body>
+</html>
